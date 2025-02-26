@@ -1,0 +1,326 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    padding-top: 100px;  /* Ajouter un peu d'espace pour que la barre de navigation ne chevauche pas les sections */
+}
+
+/* HEADER */
+header.holo {
+    padding: 1%;
+    /*border: 2px solid cyan;*/
+   /* box-shadow: 0 0 15px cyan, 0 0 30px cyan;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: black;
+}
+
+.holo h1 {
+    font-size: 5em;
+    font-weight: 600;
+    font-stretch: extra-expanded;
+    color: cyan;
+}
+
+.holo h2 {
+    font-size: 3em;
+    font-weight: 200;
+    font-stretch: extra-expanded;
+    color: cyan;
+}
+
+/* BARRE DE NAVIGATION */
+nav {
+    position: fixed;
+    top: 20%;  /* Décalage sous le header */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: black;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+    padding: 10px 15px;
+    border: 2px solid cyan;
+    border-radius: 25%;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: cyan;
+    color: black;
+}
+
+/* SECTION ACCUEIL */
+#home-section {
+    margin: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+    width: 70%;
+    border-radius:15%;
+    background: url('Images/Image_acceuil_site.png');
+    background-size: cover;
+    background-position: center; 
+}
+
+/* SECTION BIO */
+#about-section {
+    margin: 10%;
+    padding: 50px;
+    height: 60vh;
+    background: url('Images/Capture\ d\'écran\ 2025-02-09\ 013613.png') no-repeat center center;
+    /*background-size: cover;*/
+    border-radius: 150px;
+    box-shadow: 0 0 20px cyan;
+}
+
+.bio-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.bio-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 3px solid cyan;
+    box-shadow: 0 0 15px cyan, 0 0 30px cyan;
+}
+
+.bio-text {
+    max-width: 800px;
+    font-size: 1.5em;
+    color: cyan;
+}
+
+/* Effet de bruit statique */
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/4/4c/Noise_sample.png');
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    animation: noise 50s infinite linear;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .bio-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .bio-photo {
+        width: 150px;
+        height: 150px;
+    }
+    .holo h1 {
+        font-size: 2.5em;
+    }
+    .holo h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Sections */
+.hidden {
+    display: none;
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#back-to-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 15px 20px;
+    font-size: 2em;
+    font-weight: 900;
+    background-color: black; /* Couleur visible */
+    color:cyan;
+    border: 15px solid rgba(0, 255, 255, 0.2);
+    border-style: dashed;
+    border-radius: 60%;
+    cursor: pointer;
+    display: block; /* TEMPORAIRE : le rendre toujours visible pour tester */
+    z-index: 1000; /* S'assurer qu'il est bien au-dessus */
+}
+
+#back-to-home:hover {
+    background-color: rgba(0, 255, 255, 0.5);
+}
+
+/* section de contact*/
+#contact-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    opacity: 1;
+
+
+    margin: 10%;
+    height: 60vh;
+    border-radius: 150px; /* Coins arrondis */
+    background: url('Images/IMG-20241203-WA0000.jpg') no-repeat center center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+#contact-section p {
+    color: rgb(0, 217, 255); /* ✅ S'assurer que le texte est visible */
+    font-size: 5em;
+    margin: 20px 0;
+    text-shadow:
+    3px 3px 0 #000,
+    -3px 3px 0 #000,
+    -3px -3px 0 #000,
+    3px -3px 0 #000;
+    
+}
+
+/* Section Tarif */
+#research-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    opacity: 1;
+
+
+    margin-top: 10%;
+    height: 60vh;
+    border-radius: 150px; /* Coins arrondis */
+    background: url('Images/Image\ Tarif.png');
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+#research-section h2 {
+    color: white; /* ✅ S'assurer que le texte est visible */
+    font-size: 6em;
+    margin: 90px 0;
+
+    text-shadow:
+        -2px -2px 0 #ffffff, -2px 2px 0 #636363, 2px -2px 0 #4d4d4d, 2px 2px 0 #575757, /* Premier niveau de contour */
+        -3px -3px 0 #a5a5a5, -3px 3px 0 #222222, 3px -3px 0 #272727, 3px 3px 0 #313131, /* Deuxième niveau de contour */
+        -4px -4px 0 #3f3f3f, -4px 4px 0 #000, 4px -4px 0 #000, 4px 4px 0 #000; /* Troisième niveau de contour */
+    
+}
+
+#research-section p {
+    color: white; /* ✅ S'assurer que le texte est visible */
+    font-size: 6em;
+    margin: 90px 0;
+    
+}
+.download-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.download-link:hover {
+    background-color: #0056b3;
+}
+
+#work-section {
+    padding-top: 10%; /* Ajuste selon la hauteur de ta barre de navigation */
+}
+
+#work-section a img {
+    transition: transform 0.3s ease-in-out;
+}
+
+#work-section a img:hover {
+    transform: scale(1.05); /* Agrandit légèrement l'image */
+    box-shadow: 0 0 15px cyan;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px cyan;
+}
+
+/* Mise en grille des images */
+.gallery-grid {
+    margin: 150px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Colonnes flexibles */
+    gap: 20px; /* Espace entre les images */
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Style des images */
+.gallery-grid img {
+    width: 100%; /* Prend toute la largeur de la colonne */
+    height: auto;
+    border-radius: 50px; /* Coins arrondis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+/* Effet de zoom au survol */
+.gallery-grid img:hover {
+    transform: scale(1.5); /* Agrandissement */
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.8); /* Ombre lumineuse */
+}
+
